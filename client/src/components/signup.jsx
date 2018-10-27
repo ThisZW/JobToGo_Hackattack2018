@@ -8,7 +8,7 @@ export default class signup extends Component {
         email: null,
         name: null,
         password: null,
-        type: null,
+        //type: null,
         loading: false
       };
       this.signup = this.signup.bind(this);
@@ -17,7 +17,7 @@ export default class signup extends Component {
     componentDidMount() {
       const { match } = this.props;
       this.setState({
-        type: match.params.type,
+        //type: match.params.type,
       });
     }
   
@@ -56,9 +56,7 @@ export default class signup extends Component {
           >
             <div>
               <Radio.Group
-                value={type}
                 buttonStyle="solid"
-                onChange={(e) => { this.setState({ type: e.target.value }); }}
                 className="user-type-radio"
               >
                 <Radio.Button value="signin">Sign in</Radio.Button>
