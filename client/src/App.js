@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import User from './components/User'
 import Jobs from './components/Jobs'
+import signup from './components/signup'
 import "antd/dist/antd.css";
 
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
@@ -14,10 +15,9 @@ class App extends Component {
           Welcome to JobToGo
         </header>
         <Router>
-          <Switch>
-            <Route path="/" exact component={User} />
+            <Route path="/signup" exact component={signup} />
+            <Route path="/" exact component={signup} />
             <Route path="/job-list" component={Jobs} />
-          </Switch>
         </Router>
       </div>
     );
