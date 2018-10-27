@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import User from './components/User'
+import Jobs from './components/Jobs'
+import "antd/dist/antd.css";
+
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -11,7 +14,10 @@ class App extends Component {
           Welcome to JobToGo
         </header>
         <Router>
-          
+          <Switch>
+            <Route path="/" exact component={User} />
+            <Route path="/job-list" component={Jobs} />
+          </Switch>
         </Router>
       </div>
     );
