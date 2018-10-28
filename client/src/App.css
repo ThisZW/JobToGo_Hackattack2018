@@ -62,3 +62,8 @@
   display: flex !important;
   margin-bottom: 10px !important;
 }
+
+
+.ant-card-body{
+  padding: 16px !important;
+}

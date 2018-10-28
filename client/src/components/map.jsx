@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Col, Row} from 'antd';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 
@@ -11,11 +10,8 @@ import ReactDOM from 'react-dom'
  */
 const lat = 40.741669
 const lng = -73.820770
-console.log(lng)
-console.log(lat)
 
-class map extends React.Component{
-
+class MiniMap extends React.Component{
   constructor(props) {
     super(props);
     this.state = {locations: []}; 
@@ -30,10 +26,10 @@ class map extends React.Component{
     return(
       <MapContainer
         google={this.props.google}
+        destCoords={this.props.destCoords}
       />
     )
   }
-  
 }
 
 class MapContainer extends Component{
@@ -109,20 +105,18 @@ class MapContainer extends Component{
 
   render() {
     const style = { // MUST specify dimensions of the Google map or it will not work. Also works best when style is specified inside the render function and created as an object
-      height: '75vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
+      height: '300px' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
     return (
       <Row>
-        <Col md={12}>
           <div ref="map" style={style}>
             loading map...
           </div>
-        </Col>
       </Row>
     );
   }
 }
 
-export default withRouter(GoogleApiWrapper({
+export default GoogleApiWrapper({
   apiKey: "AIzaSyDbvmQGBFexX5Dk0nbbVJ-sIq3QOtprm7M",
-})(map))
+})(MiniMap)

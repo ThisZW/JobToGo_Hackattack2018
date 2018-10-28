@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import jobs from './components/jobs';
-import signin from './components/signin';
-import signup from './components/signup';
-import map from './components/map'
+import Signin from './components/signin';
+import Signup from './components/signup';
+import MiniMap from './components/map';
 import {geolocated} from 'react-geolocated';
 import './App.css';
 import "antd/dist/antd.css";
@@ -34,10 +34,11 @@ class App extends Component {
         </header>
         <Router>
           <Switch>
-            <Route path="/signup" component={signup} />
-            <Route path="/" exact component={signin} />
-            <Route path="/job-list" component={jobs} />
-            <Route path="/map" component={map} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/" exact component={Signin} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/jobs" component={jobs} />
+            <Route path="/map" component={MiniMap} />
           </Switch>
         </Router>
       </div>
