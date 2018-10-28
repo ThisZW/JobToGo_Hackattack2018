@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import jobs from './components/jobs';
 import signin from './components/signin';
 import signup from './components/signup';
+import map from './components/map'
 
 import './App.css'; 
 import "antd/dist/antd.css";
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/signup" component={signup} />
             <Route path="/" exact component={signin} />
             <Route path="/job-list" component={jobs} />
+            <Route path="/map" component={map} />
           </Switch>
         </Router>
       </div>
