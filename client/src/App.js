@@ -4,10 +4,13 @@ import Signin from './components/signin';
 import Signup from './components/signup';
 import MiniMap from './components/map';
 import {geolocated} from 'react-geolocated';
+import { Layout } from 'antd';
 import './App.css';
 import "antd/dist/antd.css";
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
+const { Header, Content } = Layout;
 
 class App extends Component {
 
@@ -29,16 +32,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          Welcome to JobToGo!
-        </header>
         <Router>
           <Switch>
             <Route path="/signup" component={Signup} />
             <Route path="/" exact component={Signin} />
             <Route path="/signin" component={Signin} />
-            <Route path="/jobs" component={jobs} />
-            <Route path="/map" component={MiniMap} />
+            <div className="container-with-header">
+              <Header className="App-header">
+                Welcome to JobToGo
+              </Header>
+              <Route path="/jobs" component={jobs} />
+              <Route path="/map" component={MiniMap} />
+            </div>
           </Switch>
         </Router>
       </div>
