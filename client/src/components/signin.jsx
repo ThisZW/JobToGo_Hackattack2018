@@ -2,6 +2,7 @@ import {Button, Card, Icon, Input, message} from 'antd';
 import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import cookie from 'react-cookies'
 
   
   export default class Signin extends PureComponent {
@@ -25,6 +26,7 @@ import 'firebase/auth';
         .then((user) => {
           if (user) {
             window.location = '/jobs';
+            cookie.save('userEmail', email, { path: '/' });  // user cookie.load('userEmail') later
           }
         })
         .catch((err) => {
