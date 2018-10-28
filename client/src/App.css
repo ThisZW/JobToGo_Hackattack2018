@@ -12,6 +12,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .App-header {
@@ -36,6 +37,13 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+
+.App-header{
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
 }
 
 /* signup && signin */
@@ -67,4 +75,8 @@ body{
   width: 100% !important;
   display: flex !important;
   margin-bottom: 10px !important;
+}
+
+.list-jobs-container{
+  margin-top:50px;
 }

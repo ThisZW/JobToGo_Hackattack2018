@@ -38,7 +38,8 @@ class jobs extends Component{
   render(){
     const jobList = this.state.jobList;
     return(
-      Object.keys(jobList).map((v, i) => {
+      <div className="list-jobs-container">
+      {Object.keys(jobList).map((v, i) => {
         let reqs;
         jobList[v]['requirement'] && 
         (reqs = jobList[v].requirement.map( val=>{
@@ -54,10 +55,10 @@ class jobs extends Component{
               {reqs && reqs.join(', ')}
               <MapWrapper destCoords={jobList[v].location}/>
             </Card>
-
           </Row>
         )
-      })
+      })}
+      </div>
     );
   }
 }
