@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import cookie from 'react-cookies'
-
   
   export default class Signin extends PureComponent {
     constructor(props) {
@@ -38,7 +37,6 @@ import cookie from 'react-cookies'
       const { email, password, loading } = this.state;
       return (
         <div className="signin">
-          <h1 className="title">JobToGo</h1>
           <Card
             className="signin-card"
             title="Sign In"

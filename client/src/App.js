@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          Welcome to JobToGo
+          Welcome to JobToGo!
         </header>
         <Router>
           <Switch>
