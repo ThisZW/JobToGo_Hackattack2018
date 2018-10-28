@@ -32,9 +32,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/*<Header className="App-header">
-          Welcome to JobToGo
-    </Header>*/}
         <Router>
           <Switch>
             <Route path="/signup" component={Signup} />

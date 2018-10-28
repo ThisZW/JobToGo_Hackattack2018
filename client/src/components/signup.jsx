@@ -53,7 +53,6 @@ export default class signup extends Component {
       } = this.state;
       return (
         <div className="signup">
-          <h1 className="title">JobToGo</h1>
           <Card
             className="signup-card"
             title="Sign Up"
