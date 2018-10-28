@@ -1,11 +1,39 @@
 import React, { Component } from 'react';
+import {Row, Card} from 'antd';
+import axios from 'axios';
 
-const testData = [
-  {name:'Wash Dishes', poster:'User1', detail:'wash them for 3 hours?', date:''}
-]
+
+const jobListUrl = 'https://jobtogo-504b3.firebaseio.com/job.json'
 class jobs extends Component{
+  
+  constructor(){
+    super()
+    this.state = {
+      jobList: '',
+    }
+  }
+//?orderBy="employer"&equalTO=false
+  componentWillMount = () =>{
+    axios.get(jobListUrl)
+    .then( res => {
+      this.setState({
+        jobList: res.data
+      })
+      console.log(this.state.jobList)
+    })
+  }
+
   render(){
-    return(<a>1</a>);
+    const jobList = this.state.jobList;
+    return(
+      Object.keys(jobList).map((v, i) => {
+        return (
+          <Card title={jobList[v].title}> 
+            
+          </Card>
+        )
+      })
+    );
   }
 }
 

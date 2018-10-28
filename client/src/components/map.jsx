@@ -112,9 +112,7 @@ class MapContainer extends Component{
       height: '75vh' // 75vh similarly will take up roughly 75% of the height of the screen. px also works.
     }
     return (
-      <Row style={{
-        padding: "20px 0"
-      }}>
+      <Row>
         <Col md={12}>
           <div ref="map" style={style}>
             loading map...

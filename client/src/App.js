@@ -3,13 +3,29 @@ import jobs from './components/jobs';
 import signin from './components/signin';
 import signup from './components/signup';
 import map from './components/map'
-
-import './App.css'; 
+import {geolocated} from 'react-geolocated';
+import './App.css';
 import "antd/dist/antd.css";
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 class App extends Component {
+
+  componentDidMount = () => {
+    if (!this.props.isGeolocationAvailable)
+    console.log('does not support!');
+    else if (!this.props.isGeolocationEnabled)
+      console.log('user rejected!');
+    else {
+      if(!this.props.positionError){
+        console.log(this.props)
+        console.log(this.props.coords);
+      }
+      else
+        console.log(this.props.positionError);
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,4 +45,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default geolocated({
+	positionOptions: {
+		enableHighAccuracy: true,
+	},
+	userDecisionTimeout: 5000,
+})(App);
