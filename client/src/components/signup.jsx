@@ -1,6 +1,8 @@
-import {Button, Card, Icon, Input, Radio, message} from 'antd';
+import {Button, Card, Icon, Input, message} from 'antd';
 import React, { Component } from 'react';
-  
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 export default class signup extends Component {
     constructor(props) {
       super(props);
@@ -18,11 +20,6 @@ export default class signup extends Component {
       const {
         name, password, email,
       } = this.state;
-      const reqData = {
-        name,
-        password,
-        email,
-      };
       if (!name || !password || !email) {
         message.error('Looks like you\'re missing something.');
         this.setState({ loading: false });
@@ -33,6 +30,21 @@ export default class signup extends Component {
         this.setState({ loading: false });
         return;
       }
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        var errorMessage = error.message;
+        console.log(errorMessage);
+      }).then((user) => {
+          if (user) {
+            message.success('Signed Up. Redirecting..');
+            window.location = '/jobs';
+          }
+          else {
+          this.setState({ loading: false });
+        }
+      }).catch((err) => {
+        console.log('Signup Err', err);
+        this.setState({ loading: false });
+      });
     }
   
     render() {
