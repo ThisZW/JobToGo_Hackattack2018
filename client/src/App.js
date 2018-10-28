@@ -6,7 +6,7 @@ import signup from './components/signup';
 import './App.css'; 
 import "antd/dist/antd.css";
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -17,9 +17,8 @@ class App extends Component {
         </header>
         <Router>
           <Switch>
-            <Route path="/signin" exact component={signin} />
-            <Route path="/" exact component={signup} />
-            <Route path="/signup" exact component={signup} />
+            <Route path="/signup" component={signup} />
+            <Route path="/" exact component={signin} />
             <Route path="/job-list" component={jobs} />
           </Switch>
         </Router>

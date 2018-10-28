@@ -8,17 +8,9 @@ export default class signup extends Component {
         email: null,
         name: null,
         password: null,
-        //type: null,
         loading: false
       };
       this.signup = this.signup.bind(this);
-    }
-  
-    componentDidMount() {
-      const { match } = this.props;
-      this.setState({
-        //type: match.params.type,
-      });
     }
   
     signup() {
@@ -49,19 +41,12 @@ export default class signup extends Component {
       } = this.state;
       return (
         <div className="signup">
-          <h1 className="title">#</h1>
+          <h1 className="title">JobToGo</h1>
           <Card
             className="signup-card"
             title="Sign Up"
           >
             <div>
-              <Radio.Group
-                buttonStyle="solid"
-                className="user-type-radio"
-              >
-                <Radio.Button value="signin">Sign in</Radio.Button>
-                <Radio.Button value="signup">Sign Up</Radio.Button>
-              </Radio.Group>
               <Input
                 size="large"
                 placeholder="Full Name"
