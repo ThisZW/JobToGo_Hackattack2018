@@ -1,7 +1,7 @@
-import {
-    Button, Card, Icon, Input, message,
-  } from 'antd';
-  import React, { PureComponent } from 'react';
+import {Button, Card, Icon, Input, message} from 'antd';
+import React, { PureComponent } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
   
   export default class Signin extends PureComponent {
@@ -17,12 +17,19 @@ import {
   
     signin() {
       const { email, password } = this.state;
-      if (email !== 'user1@gmail.com' || password !== 'password') {
+      if (email === '' || password === '') {
         message.error('Looks like you\'re missing something.');
+        return;
       }
-      this.props.history.push('/jobs')
-      
-      return;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((user) => {
+          if (user) {
+            window.location = '/jobs';
+          }
+        })
+        .catch((err) => {
+          message.error(err.message);
+        });
     }
       
     render() {
